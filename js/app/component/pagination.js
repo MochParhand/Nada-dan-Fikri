@@ -2,7 +2,7 @@ import { comment } from './comment.js';
 
 export const pagination = (() => {
 
-    let perPage = 10;
+    let perPage = 2;
     let pageNow = 0;
     let resultData = 0;
 
@@ -108,8 +108,8 @@ export const pagination = (() => {
         };
 
         return {
-            next,
-            prev,
+            // next,
+            // prev,
         };
     };
 
