@@ -4,7 +4,7 @@ export const pagination = (() => {
 
     let perPage = 2;
     let pageNow = 0;
-    let resultData = 0;
+    let resultData = 1;
 
     /**
      * @type {HTMLElement|null}
