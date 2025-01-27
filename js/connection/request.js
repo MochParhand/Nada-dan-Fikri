@@ -66,7 +66,7 @@ export const request = (method, path) => {
                         document.body.removeChild(existingLink);
                     }
 
-                    const filename = res.headers.get('content-disposition')?.match(/filename="(.+)"/)?.[1] ?? 'download.csv';
+                    const filename = res.headers.get('content-disposition')?.match(/filename="(.+)"/)?.[0] ?? 'download.csv';
 
                     return res.blob().then((blob) => {
                         const link = document.createElement('a');
