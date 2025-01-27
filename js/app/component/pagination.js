@@ -1,10 +1,9 @@
 import { comment } from './comment.js';
 
 export const pagination = (() => {
-
-    let perPage = 2;
-    let pageNow = 0;
-    let resultData = 1;
+    let perPage = 0;
+    let pageNow = 0; // Default page to 0
+    let resultData = 0;
 
     /**
      * @type {HTMLElement|null}
@@ -32,6 +31,9 @@ export const pagination = (() => {
      */
     const setPer = (num) => {
         perPage = Number(num);
+        if (paginate) {
+            paginate.style.display = perPage === 0 ? 'none' : 'block';
+        }
     };
 
     /**
@@ -108,8 +110,8 @@ export const pagination = (() => {
         };
 
         return {
-            // next,
-            // prev,
+            next,
+            prev,
         };
     };
 
@@ -117,13 +119,9 @@ export const pagination = (() => {
      * @returns {Promise<boolean>}
      */
     const reset = async () => {
-        if (pageNow === 0) {
-            return false;
-        }
-
         pageNow = 0;
         resultData = 0;
-        page.innerText = 1;
+        page.innerText = 0; // Set to 0
 
         disabledNext();
         disabledPrevious();
@@ -159,10 +157,12 @@ export const pagination = (() => {
     const previous = async (button) => {
         disabledPrevious();
 
-        if (pageNow < 0) {
+        if (pageNow <= 0) { // Allow 0
             return;
         }
 
+        pageNow -= 1;
+        page.innerText = pageNow;
         disabledNext();
         await buttonAction(button).prev();
     };
@@ -178,6 +178,8 @@ export const pagination = (() => {
             return;
         }
 
+        pageNow += 1;
+        page.innerText = pageNow;
         disabledPrevious();
         await buttonAction(button).next();
     };
@@ -187,6 +189,14 @@ export const pagination = (() => {
      */
     const init = () => {
         paginate = document.getElementById('pagination');
+        
+        if (perPage === 0) {
+            // Jika perPage = 0, sembunyikan pagination
+            paginate.style.display = 'none';
+            return;
+        }
+
+        paginate.style.display = 'block'; // Pastikan pagination terlihat jika perPage > 0
         paginate.innerHTML = `
         <ul class="pagination mb-2 shadow-sm rounded-4">
             <li class="page-item disabled" id="previous">
@@ -195,7 +205,7 @@ export const pagination = (() => {
                 </button>
             </li>
             <li class="page-item disabled">
-                <span class="page-link text-light" id="page">1</span>
+                <span class="page-link text-light" id="page">0</span> <!-- Default set to 0 -->
             </li>
             <li class="page-item" id="next">
                 <button class="page-link rounded-end-4" onclick="undangan.comment.pagination.next(this)" data-offline-disabled="false">
