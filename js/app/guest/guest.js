@@ -176,9 +176,9 @@ export const guest = (() => {
             storage('tracker').clear();
         }
 
-        if (information.has('presence')) {
-            document.getElementById('form-presence').value = information.get('presence') ? '1' : '2';
-        }
+        // if (information.has('presence')) {
+        //     document.getElementById('form-presence').value = information.get('presence') ? '1' : '2';
+        // }
 
         const info = document.getElementById('information');
         if (info && information.get('info')) {
@@ -206,11 +206,12 @@ export const guest = (() => {
                 }
 
                 progress.complete('config');
+                progress.complete('comment');
 
-                comment.init();
-                comment.comment()
-                    .then(() => progress.complete('comment'))
-                    .catch(() => progress.invalid('comment'));
+                // comment.init();
+                // comment.comment()
+                //     .then(() => progress.complete('comment'))
+                //     .catch(() => progress.invalid('comment'));
             }).catch(() => progress.invalid('config'));
         }
 

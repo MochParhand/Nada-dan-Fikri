@@ -93,12 +93,6 @@
                     <span class="d-block" style="font-size: 0.7rem;">Galeri</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#comment">
-                    <i class="fa-solid fa-comments"></i>
-                    <span class="d-block" style="font-size: 0.7rem;">Ucapan</span>
-                </a>
-            </li>
         </ul>
     </nav>
 
@@ -395,55 +389,6 @@
 
                     <p class="mt-2 mb-0 p-0" style="font-size: 0.95rem;">Nada Maulida Nabila</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Comment -->
-        <section class="bg-light my-0 pb-0 pt-3" id="comment">
-            <div class="container">
-                <div class="border rounded-4 shadow p-3 mb-2">
-                    <h2 class="font-esthetic text-center mt-2 mb-4" style="font-size: 2.5rem;">Ucapan &amp; Doa</h2>
-
-                    <div class="mb-3">
-                        <label for="form-name" class="form-label my-1"><i class="fa-solid fa-person me-2"></i>Nama</label>
-                        <input type="text" class="form-control shadow-sm rounded-4" id="form-name" minlength="2" maxlength="50" placeholder="Isikan Nama Anda" autocomplete="name" data-offline-disabled="false">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="form-presence" class="form-label my-1"><i class="fa-solid fa-person-circle-question me-2"></i>Presensi</label>
-                        <select class="form-select shadow-sm rounded-4" id="form-presence" autocomplete="off" data-offline-disabled="false">
-                            <option value="0" selected>Konfirmasi Presensi</option>
-                            <option value="1">Datang</option>
-                            <option value="2">Berhalangan</option>
-                        </select>
-                    </div>
-<!-- 
-                    <div class="mb-3">
-                        <div id="information" class="alert alert-info alert-dismissible fade show rounded-4" role="alert">
-                            <button type="button" class="btn-close rounded-4 p-3" data-bs-dismiss="alert" aria-label="Close" onclick="undangan.guest.closeInformation()"></button>
-
-                            <p style="font-size: 1.5rem;">Bestieee!!!</p>
-                            <p class="m-0">Cobain like seperti Instagram, dengan tap tap bagian komentarnya</p>
-                            <hr class="my-2">
-                            <p class="m-0">Sama bisa format text seperti Whatsapp lohh... cobainn jugaaa, makaciwww bestieee</p>
-                        </div>
-
-                        <label for="form-comment" class="form-label my-1"><i class="fa-solid fa-comment me-2"></i>Ucapan &amp; Doa</label>
-                        <textarea class="form-control shadow-sm rounded-4" id="form-comment" rows="4" minlength="1" maxlength="1000" placeholder="Tulis Ucapan dan Doa" autocomplete="off" data-offline-disabled="false"></textarea>
-                    </div> -->
-
-                    <div class="d-grid">
-                        <button class="btn btn-primary btn-sm rounded-4 shadow m-1" onclick="undangan.comment.send(this)" data-offline-disabled="false">
-                            <i class="fa-solid fa-paper-plane me-2"></i>Send
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Comments -->
-                <div class="py-3" id="comments" data-loading="true"></div>
-
-                <!-- Pagination -->
-                <nav class="d-flex d-none justify-content-center mt-1 mb-0" id="pagination"></nav>
             </div>
         </section>
 
